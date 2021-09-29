@@ -72,16 +72,14 @@ class themeServiceProvider extends ServiceProvider
         /*--------------------------------------------------------------------------
         | Register Console Commands
         |--------------------------------------------------------------------------*/
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                listThemes::class,
-                createTheme::class,
-                removeTheme::class,
-                createPackage::class,
-                installPackage::class,
-                refreshCache::class,
-            ]);
-        }
+        $this->commands([
+            listThemes::class,
+            createTheme::class,
+            removeTheme::class,
+            createPackage::class,
+            installPackage::class,
+            refreshCache::class,
+        ]);
 
         /*--------------------------------------------------------------------------
         | Register custom Blade Directives
