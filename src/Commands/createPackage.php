@@ -73,6 +73,12 @@ class createPackage extends baseCommand
 
         File::copyDirectory($assetPath, "{$this->tempPath}/asset");
 
+        // Remove unused folder
+        $path = "{$this->tempPath}/views/node_modules";
+        if (File::exists($path)) {
+            File::deleteDirectory($path);
+        }
+
         // Add viewsPath into theme.json file
         $themeJson = new \Igaster\LaravelTheme\themeManifest();
 
