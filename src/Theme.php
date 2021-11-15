@@ -184,6 +184,10 @@ class Theme
     public function setSetting($key, $value)
     {
         $this->settings[$key] = $value;
+        $viewsPath = themes_path($this->viewsPath);
+        $themeJson = new \Igaster\LaravelTheme\themeManifest($this->settings);
+        $themeJson->saveToFile("$viewsPath/theme.json");
+        $this->themes->rebuildCache();
     }
 
     public function getSetting($key, $default = null)
