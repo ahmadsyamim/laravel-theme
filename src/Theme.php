@@ -197,6 +197,15 @@ class Theme
         }
     }
 
+    public function getSettings()
+    {
+        if ($parent = $this->getParent()) {
+            return $parent->getSettings();
+        } else {
+            return $this->settings;
+        }
+    }
+
     public function loadSettings($settings = [])
     {
 
